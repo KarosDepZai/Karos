@@ -1,0 +1,26 @@
+{
+  "name": "karos",
+  "version": "1.0.0",
+  "description": "Chào mừng bạn đến với dự án website chính thức được phát triển bởi **Karos**. Đây là bộ file code HTML/CSS/JS đã được code ra do **Karos** và có giao diện tuyệt vời.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarosDepZai/Karos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KarosDepZai/Karos/issues"
+  },
+  "homepage": "https://github.com/KarosDepZai/Karos#readme",
+  "dependencies": {
+    "discord.js": "^14.26.3",
+    "dotenv": "^17.4.2",
+    "fs": "^0.0.1-security"
+  }
+}
