@@ -8,8 +8,10 @@
 }
 
 body {
-    background-color: #0d1117;
-    background-image: radial-gradient(circle at top right, #1a2332, #0d1117);
+    background-image: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.7)), url('https://i.pinimg.com/originals/a4/96/c2/a496c2b6bc5d7fac04f045eb5aa8b95a.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: #fff;
     min-height: 100vh;
     display: flex;
@@ -27,7 +29,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 99999;
     cursor: pointer;
     transition: opacity 0.8s ease-out;
 }
@@ -184,19 +186,19 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 999;
     pointer-events: none;
 }
 
 .particle {
     position: absolute;
-    background: #87CEEB;
-    border-radius: 50%;
-    opacity: 0.5;
+    color: #fff;
+    opacity: 0.8;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     pointer-events: none;
     animation: fall linear infinite;
 }
 
 @keyframes fall {
-    to { transform: translateY(100vh); }
+    to { transform: translateY(100vh) rotate(360deg); }
 }

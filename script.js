@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
         mainContent.style.opacity = "1";
         mainContent.style.transform = "scale(1)";
 
-        bgMusic.volume = 0.4; 
+        bgMusic.volume = 0.5; 
         bgMusic.play().catch(error => {
-            console.log("Auto-play prevented", error);
+            console.log(error);
         });
     });
 
@@ -23,13 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const particle = document.createElement("div");
         particle.classList.add("particle");
         
-        const size = Math.random() * 4 + 1;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${Math.random() * 100}vw`;
-        particle.style.top = `-10px`;
+        particle.innerText = "❄";
         
-        const duration = Math.random() * 3 + 2;
+        const size = Math.random() * 15 + 10;
+        particle.style.fontSize = `${size}px`;
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `-30px`;
+        
+        const duration = Math.random() * 5 + 3;
         particle.style.animationDuration = `${duration}s`;
         
         particlesContainer.appendChild(particle);
@@ -39,5 +40,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }, duration * 1000);
     }
 
-    setInterval(createParticle, 200);
+    setInterval(createParticle, 150);
 });
