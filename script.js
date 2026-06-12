@@ -3,6 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainContent = document.getElementById("main-content");
     const bgMusic = document.getElementById("bg-music");
     const particlesContainer = document.getElementById("particles");
+    const clockElement = document.getElementById("live-clock");
+
+    function updateClock() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('vi-VN', { hour12: false });
+        clockElement.innerText = timeString;
+    }
+    
+    setInterval(updateClock, 1000);
+    updateClock();
 
     welcomeScreen.addEventListener("click", () => {
         welcomeScreen.style.opacity = "0";
