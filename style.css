@@ -127,35 +127,13 @@ body {
     position: relative;
     width: 120px;
     height: 120px;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
 }
 
-.avatar::before {
-    content: "";
-    position: absolute;
-    inset: -15px;
-    border-radius: 50%;
-    background: conic-gradient(from 0deg, #ff00cc, #3333ff, #00ffff, #ff00cc, #3333ff, #ff00cc);
-    filter: blur(8px);
-    animation: spinDecor 3s linear infinite;
-    z-index: -2;
-}
-
-.avatar::after {
-    content: "";
-    position: absolute;
-    inset: -22px;
-    border-radius: 50%;
-    border: 2px dashed rgba(0, 255, 255, 0.8);
-    animation: spinReverse 12s linear infinite;
-    z-index: -1;
-}
-
-.avatar img {
+.avatar-img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
@@ -164,16 +142,30 @@ body {
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
     z-index: 2;
     position: relative;
+    animation: spinAvatar 10s linear infinite;
 }
 
-@keyframes spinDecor {
+.dragon-decor {
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    width: 170px;
+    height: 170px;
+    z-index: 3;
+    pointer-events: none;
+    filter: drop-shadow(0 0 15px #ff0055);
+    animation: dragonFly 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes spinAvatar {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-@keyframes spinReverse {
-    0% { transform: rotate(360deg); }
-    100% { transform: rotate(0deg); }
+@keyframes dragonFly {
+    0% { transform: rotate(0deg); }
+    30% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .name {
