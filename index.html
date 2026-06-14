@@ -5,59 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Karos</title>
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj5lKCxqHroG0nhOU146nCJ6XQobzZBHjp5Z7A8TU&s=0" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="welcome-screen">
-        <div class="ripple-circle" style="width: 350px; height: 350px;"></div>
-        <div class="ripple-circle" style="width: 500px; height: 500px;"></div>
-
+        <div class="welcome-glow"></div>
         <div class="welcome-box" id="welcome-box">
             <div id="loading-state">
                 <i class="fa-solid fa-circle-notch fa-spin"></i>
                 <h1 class="main-text">loading...</h1>
-                <div class="loading-dots">
-                    <span></span><span></span><span></span>
-                </div>
             </div>
-
             <div id="ready-state" style="display: none;">
-                <i class="fa-regular fa-paper-plane"></i>
-                <h1 class="main-text">click to enter</h1>
-                <p class="ready-text">
-                    <i class="fa-regular fa-circle-check"></i> ready
-                </p>
+                <h1 class="main-text click-text">CLICK TO ENTER</h1>
+                <p class="sub-text">Welcome to Karos Profile Space</p>
             </div>
         </div>
     </div>
 
+    <div class="live-clock" id="live-clock">
+        <i class="fa-regular fa-clock"></i>
+        <span id="live-clock-text">00:00:00</span>
+    </div>
+
     <div id="particles"></div>
-    <audio id="bg-music" loop>
-        <source src="night-dancer.mp3" type="audio/mpeg">
-    </audio>
 
     <div id="main-content">
-        <div class="status-pill">
-            <i class="fa-solid fa-clock"></i>
-            <span id="live-clock-text">00:00:00</span>
-        </div>
-
         <div class="discord-card">
+            <div class="profile-effect" id="profile-effect"></div>
             <div class="d-banner" id="discord-banner"></div>
             
             <div class="d-profile-body">
                 <div class="d-avatar-wrapper">
                     <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar" class="d-avatar" id="discord-avatar">
+                    <img src="" alt="Decoration" class="d-avatar-decoration" id="discord-decoration" style="display: none;">
                     <div class="d-status" id="discord-status"></div>
                 </div>
 
                 <div class="d-badges" id="discord-badges"></div>
 
-                <div class="d-name" id="discord-name">...</div>
-                <div class="d-username" id="discord-username">...</div>
+                <div class="d-name" id="discord-name">Loading...</div>
+                <div class="d-username" id="discord-username">loading...</div>
                 
                 <div class="d-custom-status" id="custom-status" style="display: none;"></div>
 
@@ -66,13 +56,16 @@
                 <div class="d-section-title">ABOUT ME</div>
                 <div class="d-bio">Developer 👑 / Designer 💻 / Gamer 🎮<br>Vui lòng nhắn tin riêng trước khi gửi lời mời kết bạn!</div>
 
-                <div class="social-links" style="display: flex; gap: 8px; flex-direction: row; flex-wrap: wrap; margin-top: 15px;">
-                    <a href="https://github.com/KarosDepZai" class="btn" style="flex: 1;"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://vm.tiktok.com/ZS9j8xrptUHLc-bCAev/" class="btn" style="flex: 1;"><i class="fa-brands fa-tiktok"></i></a>
+                <div class="social-links">
+                    <a href="https://github.com/KarosDepZai" class="btn"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://vm.tiktok.com/ZS9j8xrptUHLc-bCAev/" class="btn"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
 
                 <div class="d-activity" id="discord-activity">
-                    <img src="" alt="Activity" class="act-icon" id="act-icon">
+                    <div class="act-img-container">
+                        <img src="" alt="Large Asset" class="act-icon" id="act-icon">
+                        <img src="" alt="Small Asset" class="act-icon-small" id="act-icon-small">
+                    </div>
                     <div class="act-info">
                         <div class="act-title" id="act-title"></div>
                         <div class="act-name" id="act-name"></div>
@@ -83,6 +76,10 @@
             </div>
         </div>
     </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="script.js"></script>
 </body>
