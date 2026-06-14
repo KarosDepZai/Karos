@@ -5,81 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Karos</title>
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj5lKCxqHroG0nhOU146nCJ6XQobzZBHjp5Z7A8TU&s=0" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="welcome-screen">
-        <div class="welcome-glow"></div>
-        <div class="welcome-box" id="welcome-box">
-            <div id="loading-state">
-                <i class="fa-solid fa-circle-notch fa-spin"></i>
-                <h1 class="main-text">loading...</h1>
-            </div>
-            <div id="ready-state" style="display: none;">
-                <h1 class="main-text click-text">CLICK TO ENTER</h1>
-                <p class="sub-text">Welcome to Karos Profile Space</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="live-clock" id="live-clock">
-        <i class="fa-regular fa-clock"></i>
-        <span id="live-clock-text">00:00:00</span>
+        <h1 class="glow-text">Welcome to My Profile</h1>
+        <p>[ Click To Enter ]</p>
     </div>
 
     <div id="particles"></div>
 
-    <div id="main-content">
-        <div class="discord-card">
-            <div class="profile-effect" id="profile-effect"></div>
-            <div class="d-banner" id="discord-banner"></div>
-            
-            <div class="d-profile-body">
-                <div class="d-avatar-wrapper">
-                    <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar" class="d-avatar" id="discord-avatar">
-                    <img src="" alt="Decoration" class="d-avatar-decoration" id="discord-decoration" style="display: none;">
-                    <div class="d-status" id="discord-status"></div>
-                </div>
+    <audio id="bg-music" loop>
+        <source src="night-dancer.mp3" type="audio/mpeg">
+    </audio>
 
-                <div class="d-badges" id="discord-badges"></div>
+    <div class="profile-container" id="main-content">
+        
+        <div id="live-clock">00:00:00</div>
 
-                <div class="d-name" id="discord-name">Loading...</div>
-                <div class="d-username" id="discord-username">loading...</div>
-                
-                <div class="d-custom-status" id="custom-status" style="display: none;"></div>
-
-                <div class="d-divider"></div>
-
-                <div class="d-section-title">ABOUT ME</div>
-                <div class="d-bio">Developer 👑 / Designer 💻 / Gamer 🎮<br>Vui lòng nhắn tin riêng trước khi gửi lời mời kết bạn!</div>
-
-                <div class="social-links">
-                    <a href="https://github.com/KarosDepZai" class="btn"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://vm.tiktok.com/ZS9j8xrptUHLc-bCAev/" class="btn"><i class="fa-brands fa-tiktok"></i></a>
-                </div>
-
-                <div class="d-activity" id="discord-activity">
-                    <div class="act-img-container">
-                        <img src="" alt="Large Asset" class="act-icon" id="act-icon">
-                        <img src="" alt="Small Asset" class="act-icon-small" id="act-icon-small">
-                    </div>
-                    <div class="act-info">
-                        <div class="act-title" id="act-title"></div>
-                        <div class="act-name" id="act-name"></div>
-                        <div class="act-details" id="act-details"></div>
-                        <div class="act-details" id="act-state"></div>
-                    </div>
-                </div>
+        <div class="avatar-wrapper">
+            <img src="https://cdn-icons-png.flaticon.com/512/6941/6941697.png" class="crown" alt="Crown">
+            <div class="avatar">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyOG1kNGpqcWtuOHY3ZHkzZ2xjeHowdXY5YnhrdHhpendnOXlkdTMybiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/noKPfoiakFXsk/giphy.gif" alt="Avatar" class="avatar-img">
             </div>
         </div>
-    </div>
+        
+        <h2 class="name">ᖽᐸａ𝑅Ｏ𝕊?<span class="badge">🔥</span></h2>
+        <p class="bio">Developer 👑 / Designer 💻 / Gamer 🎮</p>
 
-    <audio id="bg-music" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
+        <div class="social-links">
+            <a href="https://github.com/KarosDepZai" class="btn github"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://vm.tiktok.com/ZS9j8xrptUHLc-bCAev/" class="btn tiktok"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <a href="https://discord.gg/Gju793PgHT" class="btn discord"><i class="fa-brands fa-discord"></i> Discord</a>
+            <a href="https://www.facebook.com/profile.php?id=61566035506169" class="btn facebook"><i class="fa-brands fa-facebook"></i> Facebook</a>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 Designed by Karos.</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
