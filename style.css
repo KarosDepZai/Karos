@@ -33,7 +33,14 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 99999;
-    transition: opacity 0.8s ease-out;
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#welcome-screen.hidden {
+    transform: scale(1.5);
+    opacity: 0;
+    filter: blur(20px);
+    pointer-events: none;
 }
 
 .ripple-circle {
@@ -58,7 +65,7 @@ body {
 .welcome-box.ready-hover:hover {
     transform: scale(1.02);
     border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05), 0 0 40px rgba(135, 206, 235, 0.1);
 }
 
 .welcome-box i {
@@ -117,12 +124,19 @@ body {
 
 #main-content {
     opacity: 0;
-    transform: scale(0.9);
-    transition: all 1s ease-out;
+    transform: translateY(100px) scale(0.8);
+    filter: blur(10px);
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#main-content.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
 }
 
 .status-pill {
@@ -148,7 +162,7 @@ body {
     border-radius: 16px;
     width: 340px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
     text-align: left;
     font-family: 'Inter', sans-serif;
     color: #dbdee1;
@@ -209,9 +223,41 @@ body {
     margin-bottom: 12px;
 }
 
+.d-badge-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
 .d-name { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 2px; }
-.d-username { font-size: 14px; color: #b5bac1; margin-bottom: 16px; }
-.d-divider { height: 1px; background: #313338; margin: 12px 0; }
+.d-username { font-size: 14px; color: #b5bac1; }
+
+.d-custom-status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #dbdee1;
+    display: flex;
+    align-items: center;
+    background: rgba(43, 45, 49, 0.4);
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.d-custom-status img {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    border-radius: 2px;
+}
+
+.d-custom-status span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.d-divider { height: 1px; background: #313338; margin: 16px 0; }
 .d-section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #b5bac1; margin-bottom: 8px; }
 .d-bio { font-size: 14px; line-height: 1.4; color: #dbdee1; margin-bottom: 12px; white-space: pre-wrap; }
 

@@ -1,3 +1,19 @@
+const CUSTOM_BANNER_URL = "https://i.pinimg.com/originals/16/5e/a1/165ea1fd36de790d7fd64b5a1fd8e5bb.gif";
+const DISCORD_ID = "1379451220602654782"; 
+
+const BADGE_MAP = {
+    1: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/discordstaff.svg",
+    2: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/discordpartner.svg",
+    4: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/hypesquadevents.svg",
+    8: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/discordbughunter1.svg",
+    64: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/hypesquadbravery.svg",
+    128: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/hypesquadbrilliance.svg",
+    256: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/hypesquadbalance.svg",
+    512: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/discordearlysupporter.svg",
+    16384: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/discordbughunter2.svg",
+    131072: "https://raw.githubusercontent.com/mezotv/discord-badges/main/assets/discordearlybotdev.svg",
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     const welcomeScreen = document.getElementById("welcome-screen");
     const loadingState = document.getElementById("loading-state");
@@ -27,12 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     welcomeScreen.addEventListener("click", () => {
         if (!isReady) return;
-        welcomeScreen.style.opacity = "0";
+        
+        welcomeScreen.classList.add("hidden");
+        
         setTimeout(() => {
             welcomeScreen.style.display = "none";
-        }, 800);
-        mainContent.style.opacity = "1";
-        mainContent.style.transform = "scale(1)";
+        }, 1200);
+
+        setTimeout(() => {
+            mainContent.classList.add("visible");
+        }, 300);
+
         bgMusic.volume = 0.5; 
         bgMusic.play().catch(e => console.log(e));
     });
@@ -55,8 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     setInterval(createParticle, 150);
 
-    const DISCORD_ID = "1379451220602654782"; 
-
     async function fetchLanyard() {
         try {
             const res = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`);
@@ -70,11 +89,44 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("discord-avatar").src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=256`;
             
             if(user.banner) {
-                document.getElementById("discord-banner").style.backgroundImage = `url('https://cdn.discordapp.com/banners/${user.id}/${user.banner}.png?size=512')`;
+                const ext = user.banner.startsWith("a_") ? "gif" : "png";
+                document.getElementById("discord-banner").style.backgroundImage = `url('https://cdn.discordapp.com/banners/${user.id}/${user.banner}.${ext}?size=512')`;
+            } else {
+                document.getElementById("discord-banner").style.backgroundImage = `url('${CUSTOM_BANNER_URL}')`;
             }
+
+            const flags = user.public_flags;
+            let badgeHtml = "";
+            if (flags) {
+                for (const key in BADGE_MAP) {
+                    if ((flags & parseInt(key)) === parseInt(key)) {
+                        badgeHtml += `<img src="${BADGE_MAP[key]}" class="d-badge-icon" alt="badge">`;
+                    }
+                }
+            }
+            document.getElementById("discord-badges").innerHTML = badgeHtml;
 
             const statusDot = document.getElementById("discord-status");
             statusDot.className = "d-status status-" + data.discord_status;
+
+            const customStatus = data.activities.find(a => a.type === 4);
+            const customStatusDiv = document.getElementById("custom-status");
+            
+            if (customStatus) {
+                let emojiHtml = "";
+                if (customStatus.emoji) {
+                    if (customStatus.emoji.id) {
+                        const ext = customStatus.emoji.animated ? 'gif' : 'png';
+                        emojiHtml = `<img src="https://cdn.discordapp.com/emojis/${customStatus.emoji.id}.${ext}">`;
+                    } else if (customStatus.emoji.name) {
+                        emojiHtml = `<span style="margin-right:8px; font-size:16px;">${customStatus.emoji.name}</span>`;
+                    }
+                }
+                customStatusDiv.innerHTML = `${emojiHtml}<span>${customStatus.state || ""}</span>`;
+                customStatusDiv.style.display = "flex";
+            } else {
+                customStatusDiv.style.display = "none";
+            }
 
             const activityBox = document.getElementById("discord-activity");
             
