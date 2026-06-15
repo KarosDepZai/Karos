@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Night Dancer",
             artist: "Imase",
             src: "night-dancer.mp3",
-            cover: "https://image-cdn.nct.vn/song/2023/02/07/4/2/c/a/1675745954362_300.jpg"
+            cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5ZfkDdMqggoblBRWpts1b4z5qKBxUXD9PMPEH6SY&s=0"
         },
         {
             title: "Mất Kết Nối",
             artist: "Dương Domic",
             src: "mat-ket-noi.mp3",
-            cover: "https://i1.sndcdn.com/artworks-c76bthVSMT8F9wMR-KwSo9A-t500x500.png"
+            cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIsh35wMm9pJek6My76E7_bFgJB-kNHrjOUJYZF9w&s=0"
         },
         {
             title: "Come My Way",
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     ];
 
-    let trackIndex = 0;
+    let trackIndex = Math.floor(Math.random() * playlist.length);
     let isPlaying = false;
     const audio = new Audio();
 
@@ -131,10 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
     updateClock();
 
     welcomeScreen.addEventListener("click", () => {
-        welcomeScreen.style.opacity = "0";
+        welcomeScreen.classList.add("zoom-away");
         setTimeout(() => {
             welcomeScreen.style.display = "none";
-        }, 800);
+        }, 900);
 
         mainContent.style.opacity = "1";
         mainContent.style.transform = "scale(1)";
