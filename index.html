@@ -17,10 +17,6 @@
 
     <div id="particles"></div>
 
-    <audio id="bg-music" loop>
-        <source src="night-dancer.mp3" type="audio/mpeg">
-    </audio>
-
     <div class="profile-container" id="main-content">
         
         <div id="live-clock">00:00:00</div>
@@ -40,6 +36,28 @@
             <a href="https://vm.tiktok.com/ZS9j8xrptUHLc-bCAev/" class="btn tiktok"><i class="fa-brands fa-tiktok"></i> TikTok</a>
             <a href="https://discord.gg/Gju793PgHT" class="btn discord"><i class="fa-brands fa-discord"></i> Discord</a>
             <a href="https://www.facebook.com/profile.php?id=61566035506169" class="btn facebook"><i class="fa-brands fa-facebook"></i> Facebook</a>
+        </div>
+
+        <div class="music-player">
+            <div class="track-info">
+                <div class="track-disk" id="track-disk"></div>
+                <div class="track-details">
+                    <h3 id="track-title"></h3>
+                    <p id="track-artist"></p>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="track-time">
+                        <span id="current-time">0:00</span>
+                        <span id="total-duration">0:00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="music-controls">
+                <button id="prev-btn" class="control-btn"><i class="fa-solid fa-backward-step"></i></button>
+                <button id="play-btn" class="control-btn play-main"><i class="fa-solid fa-play"></i></button>
+                <button id="next-btn" class="control-btn"><i class="fa-solid fa-forward-step"></i></button>
+            </div>
         </div>
 
         <div class="footer">
