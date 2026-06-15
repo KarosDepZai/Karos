@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mainContent.style.opacity = "1";
         mainContent.style.transform = "scale(1)";
 
-        audio.volume = 0.5;
+        audio.volume = 0.8;
         playTrack();
     });
 
