@@ -22,6 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
             artist: "Sơn Tùng M-TP",
             src: "come-my-way.mp3",
             cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTujTSODMYgr8KQYId0Xi8Rk9aj6a4_xzdaPjNSuG8&s=0"
+        }, 
+        {
+            title: "Địa Ngục Trần Gian",
+            artist: "Phạm Kỳ",
+            src: "dia-nguc-tran-gian.mp3",
+            cover: "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/e/0/1/f/e01f736d88866d941027b524e5a82f92.jpg"
         }
     ];
 
@@ -139,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mainContent.style.opacity = "1";
         mainContent.style.transform = "scale(1)";
 
-        audio.volume = 0.8;
+        audio.volume = 0.5;
         playTrack();
     });
 
